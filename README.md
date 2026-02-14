@@ -115,6 +115,107 @@ cd Deli*
 
 ---
 
-## 📜 License
+# Deliverable 3 — Memory Management and Process Synchronization
 
-This project is for educational use only.
+This branch contains **Deliverable 3** of the Advanced Shell Simulation project.  
+The goal of this deliverable is to simulate how an operating system manages **memory** using paging and page replacement algorithms, and how it handles **process synchronization** to prevent race conditions.
+
+---
+
+## Features Implemented
+
+### 1. Memory Management (Paging)
+- Fixed-size memory frames
+- Page allocation and deallocation
+- Page fault detection and tracking
+- Memory usage tracking
+
+### 2. Page Replacement Algorithms
+- **FIFO (First-In-First-Out)**
+- **LRU (Least Recently Used)**
+
+The shell automatically triggers page replacement when memory is full.
+
+### 3. Process Synchronization
+- Producer–Consumer synchronization model
+- Shared buffer protected using synchronization logic
+- Prevents race conditions during concurrent access
+
+---
+
+## How to Run
+
+Make sure you are using **Ubuntu (WSL)** or a Unix-like environment with Python 3 installed.
+
+```bash
+python3 memory_sync_shell.py
+```
+
+---
+
+## Shell Commands
+
+### Memory Management Commands
+
+```
+meminit <frames> <fifo|lru>   Initialize memory with given frames and algorithm
+access <page>                Access a page (may cause page fault)
+memstat                      Display total page faults
+```
+
+### Synchronization Commands
+
+```
+produce <item>               Produce an item into shared buffer
+consume                      Consume an item from shared buffer
+```
+
+### General Commands
+
+```
+exit                         Exit the shell
+```
+
+---
+
+## Example Usage
+
+### FIFO Page Replacement
+
+```text
+memsync> meminit 3 fifo
+memsync> access 1
+memsync> access 2
+memsync> access 3
+memsync> access 4
+Replacing (FIFO) page 1
+```
+
+### LRU Page Replacement
+
+```text
+memsync> meminit 3 lru
+memsync> access 1
+memsync> access 2
+memsync> access 3
+memsync> access 1
+memsync> access 4
+Replacing (LRU) page 2
+```
+
+### Producer–Consumer Synchronization
+
+```text
+memsync> produce A
+Produced A | Buffer: ['A']
+memsync> consume
+Consumed A | Buffer: []
+```
+
+---
+
+## Notes
+
+- This deliverable builds on previous stages of the project.
+- The implementation is a **simulation** of OS behavior, not a real kernel.
+- This branch is intended to be merged later as part of Deliverable 4.
