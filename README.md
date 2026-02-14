@@ -115,9 +115,9 @@ cd Deli*
 
 ---
 
-# Deliverable 3 — Memory Management and Process Synchronization
+# Memory Management and Process Synchronization
 
-This branch contains **Deliverable 3** of the Advanced Shell Simulation project.  
+This branch contains **memsync** of the Advanced Shell Simulation project.  
 The goal of this deliverable is to simulate how an operating system manages **memory** using paging and page replacement algorithms, and how it handles **process synchronization** to prevent race conditions.
 
 ---
@@ -216,6 +216,5 @@ Consumed A | Buffer: []
 
 ## Notes
 
-- This deliverable builds on previous stages of the project.
+- This repo builds on previous stages of the project.
 - The implementation is a **simulation** of OS behavior, not a real kernel.
-- This branch is intended to be merged later as part of Deliverable 4.
